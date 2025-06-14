@@ -8,6 +8,9 @@ const assertEqual = function(actual, expected) {
 
 function tail(array) {
   return array.slice(1);
-};
+}
 
+const words = ["Yo Yo", "Lighthouse", "Labs"];
+tail(words);
+assertEqual(words.length)
 console.log(tail(["Hello", "Lighthouse", "Labs"])); // Expected output: Labs
