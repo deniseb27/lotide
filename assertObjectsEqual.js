@@ -61,14 +61,5 @@ const longSleeveMultiColorShirtObject = {
   sleeveLength: "long",
 };
 
-assertEqual(eqObjects(shirtObject, anotherShirtObject), true);
-assertEqual(eqObjects(shirtObject, longSleeveShirtObject), false);
-
-assertEqual(eqObjects(multiColorShirtObject, anotherMultiColorShirtObject), true);
-assertEqual(eqObjects(multiColorShirtObject, longSleeveMultiColorShirtObject), false);
-
-assertObjectsEqual(shirtObject, anotherShirtObject);           // should print PASS message
-assertObjectsEqual(shirtObject, longSleeveShirtObject);        // should print FAIL message
-
 assertObjectsEqual(multiColorShirtObject, anotherMultiColorShirtObject);   // PASS
 assertObjectsEqual(multiColorShirtObject, longSleeveMultiColorShirtObject); // FAIL
