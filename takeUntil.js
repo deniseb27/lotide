@@ -1,11 +1,15 @@
 const takeUntil = function(array, callback) {
   const result = [];
+  let conditionMet = false;
   for (let item of array) {
-    if (callback(item)) {
-          break;
-  }
-  result.push(item);
+    if (!conditionMet) {
+          if (callback(item)) {
+            conditionMet = true;
+          } else {
+            result.push(item);
 }
+    }
+  }
 return result;
 };
 
