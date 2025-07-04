@@ -1,0 +1,5 @@
+vi tutorial.txt
+
+i
+Hello, this is my test file.
+
