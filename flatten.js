@@ -1,14 +1,19 @@
-const without = function(source, itemsToRemove) {
-  // return a new array with elements from 'source' that are not in 'itemsToRemove'
+const flatten = function(array) {
+  // flatten a single-level nested array into a one-dimensional array
   let result = [];
-  for (let i = 0; i < source.length; i++) {
-    let item = source[i];
-    // only add the item if it's not in itemsToRemove
-    if (!itemsToRemove.includes(item)) {
+  for (let i = 0; i < array.length; i++) {
+    let item = array[i];
+    // if item is an array, loop through and push each element
+    if (Array.isArray(item)) {
+      for (let j = 0; j < item.length; j++) {
+        result.push(item[j]);
+      }
+    } else {
+      // otherwise just push the element
       result.push(item);
-
     }
   }
+
   return result;
 };
 
@@ -21,7 +26,7 @@ const eqArrays = function(array1, array2) {
   return true;
 };
 
-// log assertion result comparing actual vs expected arrays
+// log result comparing actual vs expected arrays
 const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
     console.log(`✅✅✅ Assertion Passed: [${actual}] === [${expected}]`);
@@ -31,5 +36,4 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 // test cases
-assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
-assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
+assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
